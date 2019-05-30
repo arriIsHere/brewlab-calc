@@ -21,8 +21,7 @@
   "scripts": {
     "test": "jest",
     "build": "babel src --out-dir dist",
-    "build:dist": "babel src --out-dir .",
-    "prepublish": "npm run build:dist"
+    "build:dist": "babel src --out-dir ."
   },
   "repository": {
     "type": "git",
