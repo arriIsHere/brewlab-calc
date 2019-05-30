@@ -1,0 +1,50 @@
+{
+  "name": "@brewlab/calc",
+  "version": "0.0.1",
+  "description": "Library with methods for clalculations used in brewing.",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": 8
+          },
+          "modules": "commonjs",
+          "useBuiltIns": "usage",
+          "corejs": 3
+        }
+      ]
+    ]
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bblais23/brewlab-calc.git"
+  },
+  "keywords": [
+    "Brewing",
+    "Claculations",
+    "library"
+  ],
+  "author": "Ben Blais <me@benblais.dev>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bblais23/brewlab-calc/issues"
+  },
+  "homepage": "https://github.com/bblais23/brewlab-calc#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "core-js": "^3.1.3"
+  }
+}
