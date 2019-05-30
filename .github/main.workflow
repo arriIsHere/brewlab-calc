@@ -1,6 +1,6 @@
 workflow "PublishNPM" {
   on = "push"
-  resolves = ["GitHub Action for npm"]
+  resolves = ["publish"]
 }
 
 action "install" {
@@ -14,9 +14,15 @@ action "build" {
   needs = ["install"]
 }
 
-action "GitHub Action for npm" {
+action "rcfile" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  runs = "npm publish"
+  runs = "mv .npmrc.ci .npmrc"
   needs = ["build"]
+}
+
+action "publish" {
+  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  runs = "npm publish --access public"
+  needs = ["rcfile"]
   secrets = ["NPM_AUTH_TOKEN"]
 }
