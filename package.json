@@ -20,8 +20,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "babel src --out-dir dist",
-    "build:dist": "babel src --out-dir ."
+    "build": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
