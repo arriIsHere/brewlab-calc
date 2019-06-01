@@ -36,4 +36,23 @@ describe('infusion temperature', () => {
 
         expect(ibus.toFixed(2)).toBe(expectedIbus.toFixed(2));
     });
+
+    it('long boil', () => {
+        const alphaAcids = 10;
+        const boilTime = 120;
+        const weight = 1;
+        const volume = 5.5;
+
+        const expectedIbus = 37.69;
+
+        const ibus = internationalBitteringUnits(
+            alphaAcids, 
+            boilTime, 
+            weight, 
+            volume
+        );
+
+        expect(ibus.toFixed(2)).toBe(expectedIbus.toFixed(2));
+    });
+
 });
