@@ -72,6 +72,6 @@ action "Filters for GitHub Actions" {
 action "Publish" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
   needs = ["Filters for GitHub Actions"]
-  args = "npm publish dist/ --access public"
+  args = "publish dist/ --access public"
   secrets = ["NPM_AUTH_TOKEN"]
 }
