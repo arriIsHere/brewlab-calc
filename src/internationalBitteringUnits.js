@@ -1,18 +1,3 @@
-const utilizationTable = [
-    0, 5, 
-    6, 8, 
-    10.1, 
-    12.1, 
-    15.3, 
-    18.8, 
-    22.8, 
-    26.9, 
-    28.1, 
-    30, 
-    30,
-    31,
-];
-
 /**
  * Estimates the bitterness of the beer based on a hop addition as 
  * International Bittering Units. This is a estimate of bitterness not an 
@@ -31,10 +16,10 @@ export default function internationalBitteringUnits(
     weight, 
     volume,
 ) {
-    let utilization = utilizationTable[13];
-    if(boilTime <= 60) {
-        utilization = utilizationTable[Math.floor(boilTime / 5)]
-    }
-    const ibu = weight * alphaAcids * utilization / 7.25;
+    const boilFactor = (1 - 2.718281828459045235 ** (-0.04 * boilTime)) / 4.15;
+    const utilization = 1.0527601683 * boilFactor * 82.39;
+
+    const ibu = alphaAcids * weight * utilization / volume;
+
     return ibu;
 }
