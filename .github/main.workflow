@@ -1,7 +1,7 @@
 workflow "PublishNPM" {
   resolves = [
     "publish",
-    "GitHub Action for npm-3",
+    "test",
   ]
   on = "release"
 }
@@ -29,7 +29,7 @@ action "copyfiles" {
   args = ["cp * .* dist/ 2>/dev/null || :"]
   needs = [
     "rcfile",
-    "GitHub Action for npm-3",
+    "test",
   ]
 }
 
@@ -42,28 +42,27 @@ action "publish" {
 
 workflow "Pull Request Test" {
   on = "pull_request"
-  resolves = ["GitHub Action for npm-2"]
+  resolves = ["pr-test"]
 }
 
-action "GitHub Action for npm" {
+action "test" {
+  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  needs = ["build"]
+  args = "run test:ci"
+}
+
+action "pr-install" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
   args = "install"
 }
 
-action "GitHub Action for npm-1" {
+action "pr-build" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  needs = ["GitHub Action for npm"]
+  needs = ["pr-install"]
   args = "run build"
 }
 
-action "GitHub Action for npm-2" {
+action "pr-test" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  needs = ["GitHub Action for npm-1"]
-  args = "run test:ci"
-}
-
-action "GitHub Action for npm-3" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  needs = ["build"]
-  args = "run test:ci"
+  needs = ["pr-build"]
 }
