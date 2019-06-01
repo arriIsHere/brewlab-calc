@@ -1,9 +1,10 @@
 workflow "PublishNPM" {
   resolves = [
-    "publish",
     "test",
+    "copyfiles",
+    "GitHub Action for npm",
   ]
-  on = "release"
+  on = "push"
 }
 
 action "install" {
@@ -33,16 +34,9 @@ action "copyfiles" {
   ]
 }
 
-action "publish" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  runs = "npm publish dist/ --access public"
-  needs = ["copyfiles"]
-  secrets = ["NPM_AUTH_TOKEN"]
-}
-
 workflow "Pull Request Test" {
-  on = "pull_request"
   resolves = ["pr-test"]
+  on = "pull_request"
 }
 
 action "test" {
@@ -66,4 +60,17 @@ action "pr-test" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
   needs = ["pr-build"]
   args = "run test:ci"
+}
+
+action "Filters for GitHub Actions" {
+  uses = "actions/bin/filter@3c0b4f0e63ea54ea5df2914b4fabf383368cd0da"
+  needs = ["copyfiles"]
+  args = "branch master"
+}
+
+action "GitHub Action for npm" {
+  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  needs = ["Filters for GitHub Actions"]
+  args = "npm publish dist/ --access public"
+  secrets = ["NPM_AUTH_TOKEN"]
 }
