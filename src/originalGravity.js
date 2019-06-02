@@ -8,10 +8,12 @@
  * @param {number} mashEfficiency Percentage efficiency of the total brewhouse efficiency.
  * For extract brewing use 100.
  */
-export default function originalGravity(gravityPoints, volume, mashEfficiency = 80) {
+function originalGravity(gravityPoints, volume, mashEfficiency = 80) {
     const efficiencyFraction = mashEfficiency / 100;
     const brewhouseGravityPoints = gravityPoints * efficiencyFraction; 
     const volumeGravityPoints = brewhouseGravityPoints / volume;
 
     return volumeGravityPoints / 1000 + 1;
 }
+
+export default originalGravity;
