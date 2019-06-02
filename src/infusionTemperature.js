@@ -12,7 +12,7 @@
  * fahrenheit) that will be added to the mash. If none are supplied it will
  * default to room temperature (72 F).
  */
-export default function infusionTemperature(
+function infusionTemperature(
     waterGrainRatio, 
     targetTemperature, 
     grainTemperature = 72,
@@ -23,3 +23,5 @@ export default function infusionTemperature(
 
     return infusionTemperature;
 }
+
+export default infusionTemperature;

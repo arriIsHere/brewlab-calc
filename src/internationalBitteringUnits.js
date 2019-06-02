@@ -10,7 +10,7 @@
  * @param {number} weight weight in ounces
  * @param {number} volume volume of boil in gallons
  */
-export default function internationalBitteringUnits(
+function internationalBitteringUnits(
     alphaAcids, 
     boilTime, 
     weight, 
@@ -23,3 +23,5 @@ export default function internationalBitteringUnits(
 
     return ibu;
 }
+
+export default internationalBitteringUnits;
