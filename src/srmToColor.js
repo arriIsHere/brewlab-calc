@@ -47,7 +47,7 @@ const srmToRgbTable= [
  * @param {number} srm the SRM value to be converted to 
  * an hex color string i.e. #000000
  */
-export default (srm) => {
+export default function srmToColor(srm) {
   // Round
   const trueSRM = srm.toFixed(0);
 
