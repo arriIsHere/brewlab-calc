@@ -12,11 +12,11 @@
  * fahrenheit) that will be added to the mash. If none are supplied it will
  * default to room temperature (72 F).
  */
-export default (
+export default function infusionTemperature (
     waterGrainRatio, 
     targetTemperature, 
     grainTemperature = 72,
-) => {
+) {
     const constantOverRatio = 0.2 / waterGrainRatio;
     const temperatureDelta = targetTemperature - grainTemperature;
     const infusionTemperature = constantOverRatio * temperatureDelta + targetTemperature;
