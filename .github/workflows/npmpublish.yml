@@ -5,8 +5,7 @@ name: PublishNPM
 
 on:
   release:
-    types: 
-      - created
+    types: [created]
 
 jobs:
   build:
