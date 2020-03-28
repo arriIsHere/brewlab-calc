@@ -35,5 +35,5 @@ const fg = finalGravity(1.050, 75);
 
 ## Contributing
 
-please refer to [CONTRIBUTING.md] file for information on making contributions to this library.
+please refer to [CONTRIBUTING](CONTRIBUTING.md) file for information on making contributions to this library.
 
