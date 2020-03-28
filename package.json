@@ -20,6 +20,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
+    "test:all": "jest src/*.test.js",
     "test:ci": "jest dist/*.test.js",
     "build": "babel src --out-dir dist"
   },
