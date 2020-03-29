@@ -13,13 +13,13 @@
  * default to room temperature (72 F).
  */
 export default function infusionTemperature (
-    waterGrainRatio, 
-    targetTemperature, 
-    grainTemperature = 72,
+	waterGrainRatio, 
+	targetTemperature, 
+	grainTemperature = 72,
 ) {
-    const constantOverRatio = 0.2 / waterGrainRatio;
-    const temperatureDelta = targetTemperature - grainTemperature;
-    const infusionTemperature = constantOverRatio * temperatureDelta + targetTemperature;
+	const constantOverRatio = 0.2 / waterGrainRatio;
+	const temperatureDelta = targetTemperature - grainTemperature;
+	const infusionTemperature = constantOverRatio * temperatureDelta + targetTemperature;
 
-    return infusionTemperature;
+	return infusionTemperature;
 }
