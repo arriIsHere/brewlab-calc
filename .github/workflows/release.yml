@@ -38,7 +38,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/ 
       - run: npm ci
-      - run: npm run build
       - run: git config user.name $GITHUB_ACTOR
       - run: git config user.email gh-actions-${GITHUB_ACTOR}@github.com
       - run: git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
@@ -54,12 +53,17 @@ jobs:
     needs: version
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: 'https://registry.npmjs.org/'
       - run: npm ci
-      - run: npm publish
+      - run: npm run build
+      - run: cp * .* dist 2>/dev/null || echo 0
+      - run: npm version $(git describe --tags $(git rev-list --tags --max-count=1)) --no-git-tag-version
+      - run: npm publish dist/ --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
@@ -67,10 +71,15 @@ jobs:
     needs: version
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm ci
-      - run: npm publish --registry=https://npm.pkg.github.com/
+      - run: npm run build
+      - run: cp * .* dist 2>/dev/null || echo 0
+      - run: npm version $(git describe --tags $(git rev-list --tags --max-count=1)) --no-git-tag-version
+      - run: npm publish dist/ --registry=https://npm.pkg.github.com/ --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
