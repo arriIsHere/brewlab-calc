@@ -25,6 +25,7 @@
     "test": "jest --watch",
     "test:all": "jest src/*.test.js",
     "test:ci": "jest dist/*.test.js",
+    "lint": "eslint src/*.js",
     "build": "babel src --out-dir dist"
   },
   "repository": {
