@@ -1,4 +1,4 @@
-import {internationalBitteringUnits} from './index';
+import internationalBitteringUnits from './internationalBitteringUnits';
 
 describe('infusion temperature', () => {
 	it('simple baseline', () => {

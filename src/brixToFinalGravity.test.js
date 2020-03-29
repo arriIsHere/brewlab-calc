@@ -1,4 +1,4 @@
-import { brixToFinalGravity } from './index';
+import brixToFinalGravity from './brixToFinalGravity';
 
 describe('Brix to Final Gravity', () => {
 	it('14.8, 10 => 1.028', () => {

@@ -1,4 +1,4 @@
-import { srmToColor } from './index';
+import srmToColor from './srmToColor';
 
 describe('SRM to Color', () => {
 	it('return check', () => {

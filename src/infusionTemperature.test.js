@@ -1,4 +1,4 @@
-import { infusionTemperature } from './index';
+import infusionTemperature from './infusionTemperature';
 
 describe('infusion temperature', () => {
 	it('average conditions', () => {

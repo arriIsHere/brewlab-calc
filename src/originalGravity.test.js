@@ -1,4 +1,4 @@
-import {originalGravity} from './index';
+import originalGravity from './originalGravity';
 
 describe('original gravity', ()=> {
 	it('standard baseline', () => {
