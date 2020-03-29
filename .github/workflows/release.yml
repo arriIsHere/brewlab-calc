@@ -37,14 +37,13 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/ 
       - run: npm ci
-      - run: |
-          git config user.name $GITHUB_ACTOR
-          git config user.email gh-actions-${GITHUB_ACTOR}@github.com
-          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm version $(git describe --tags $(git rev-list --tags --max-count=1)) --no-git-tag-version
-          npm version patch --no-git-tag-version
-          git tag v$(node -p "require('./package.json').version")
-          git push gh-origin --tags
+      - run: git config user.name $GITHUB_ACTOR
+      - run: git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+      - run: git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+      - run: npm version $(git describe --tags $(git rev-list --tags --max-count=1)) --no-git-tag-version
+      - run: npm version patch --no-git-tag-version
+      - run: git tag v$(node -p "require('./package.json').version")
+      - run: git push gh-origin --tags
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
