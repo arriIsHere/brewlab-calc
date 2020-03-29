@@ -7,3 +7,4 @@ export { default as originalGravity } from './originalGravity';
 export { default as originalGravityToBrix } from './originalGravityToBrix';
 export { default as srmToColor } from './srmToColor';
 export { default as grainWeightToVolume } from './grainWeightToVolume';
+export { default as decoctionVolumeForStep } from './decoctionVolumeForStep'
