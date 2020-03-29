@@ -1,6 +1,6 @@
 {
   "name": "@brewlab/calc",
-  "version": "0.1.5",
+  "version": "0.0.0",
   "description": "Library with methods for calculations used in brewing.",
   "babel": {
     "presets": [
