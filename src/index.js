@@ -6,3 +6,4 @@ export { default as internationalBitteringUnits } from './internationalBittering
 export { default as originalGravity } from './originalGravity';
 export { default as originalGravityToBrix } from './originalGravityToBrix';
 export { default as srmToColor } from './srmToColor';
+export { default as grainWeightToVolume } from './grainWeightToVolume';
