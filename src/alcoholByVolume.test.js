@@ -1,4 +1,4 @@
-import {alcoholByVolume} from './index';
+import alcoholByVolume from './alcoholByVolume';
 
 describe('alcohol by volume', () => {
 	it('test 1.05 -> 1.01', () => {

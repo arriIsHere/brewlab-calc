@@ -1,4 +1,4 @@
-import {finalGravity} from './index';
+import finalGravity from './finalGravity';
 
 describe('final gravity', () => {
 	it('1.05 at 79%', () => {

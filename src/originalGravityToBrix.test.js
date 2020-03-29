@@ -1,4 +1,4 @@
-import { originalGravityToBrix } from './index';
+import originalGravityToBrix from './originalGravityToBrix';
 
 describe('Original Gravity To Brix conversion', () => {
 	it('verify 1.000 => 0.00', () => {
