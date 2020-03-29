@@ -9,9 +9,9 @@
  * For extract brewing use 100.
  */
 export default function originalGravity(gravityPoints, volume, mashEfficiency = 80) {
-    const efficiencyFraction = mashEfficiency / 100;
-    const brewhouseGravityPoints = gravityPoints * efficiencyFraction; 
-    const volumeGravityPoints = brewhouseGravityPoints / volume;
+	const efficiencyFraction = mashEfficiency / 100;
+	const brewhouseGravityPoints = gravityPoints * efficiencyFraction; 
+	const volumeGravityPoints = brewhouseGravityPoints / volume;
 
-    return volumeGravityPoints / 1000 + 1;
+	return volumeGravityPoints / 1000 + 1;
 }

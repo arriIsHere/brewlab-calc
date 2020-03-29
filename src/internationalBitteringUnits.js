@@ -11,15 +11,14 @@
  * @param {number} volume volume of boil in gallons
  */
 export default function internationalBitteringUnits (
-    alphaAcids, 
-    boilTime, 
-    weight, 
-    volume,
+	alphaAcids, 
+	boilTime, 
+	weight, 
+	volume,
 ) {
-    const boilFactor = (1 - 2.718281828459045235 ** (-0.04 * boilTime)) / 4.15;
-    const utilization = 1.0527601683 * boilFactor * 82.39;
+	const boilFactor = (1 - 2.718281828459045235 ** (-0.04 * boilTime)) / 4.15;
+	const utilization = 1.0527601683 * boilFactor * 82.39;
+	const ibu = alphaAcids * weight * utilization / volume;
 
-    const ibu = alphaAcids * weight * utilization / volume;
-
-    return ibu;
+	return ibu;
 }
