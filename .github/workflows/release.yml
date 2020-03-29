@@ -38,6 +38,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/ 
       - run: npm ci
+      - run: npm run build
       - run: git config user.name $GITHUB_ACTOR
       - run: git config user.email gh-actions-${GITHUB_ACTOR}@github.com
       - run: git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
@@ -53,7 +54,6 @@ jobs:
     needs: version
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -67,7 +67,6 @@ jobs:
     needs: version
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
