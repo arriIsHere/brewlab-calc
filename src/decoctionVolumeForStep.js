@@ -12,5 +12,5 @@ export default function decoctionVolumeForStep(startingTemperature, targetTemper
 	const temperatureDelta = targetTemperature - startingTemperature;
 	const boilingDelta = boilingPoint - startingTemperature;
 
-	return temperatureDelta / boilingDelta * mashVolume;
+	return Number((temperatureDelta / boilingDelta * mashVolume).toFixed(2));
 }
