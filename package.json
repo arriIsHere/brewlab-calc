@@ -17,13 +17,30 @@
       ]
     ]
   },
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold" : {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      },
+      "./**/index.js": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    }
+  },
   "eslintConfig": {
     "extends": "benblais"
   },
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
-    "test:all": "jest src/*.test.js --coverage",
+    "test:all": "jest src/*.test.js",
     "test:ci": "jest dist/*.test.js",
     "lint": "eslint src/*.js",
     "build": "babel src --out-dir dist"
