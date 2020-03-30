@@ -10,13 +10,13 @@ on:
 
 jobs:
   build:
+    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [10.x, 12.x]
     steps:
       - uses: actions/checkout@v2
-        if: github.event.pull_request.merged
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -42,7 +42,12 @@ jobs:
       - run: git config user.email gh-actions-${GITHUB_ACTOR}@github.com
       - run: git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
       - run: npm version $(git describe --tags $(git rev-list --tags --max-count=1)) --no-git-tag-version
+      - run: npm version major --no-git-tag-version
+        if: startsWith(github.event.pull_request.head.ref, 'release')
+      - run: npm version minor --no-git-tag-version
+        if: startsWith(github.event.pull_request.head.ref, 'feature')
       - run: npm version patch --no-git-tag-version
+        if: startsWith(github.event.pull_request.head.ref, 'fix')
       - run: git tag v$(node -p "require('./package.json').version")
       - run: git push gh-origin --tags
         env:
@@ -72,6 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        if: github.event.pull_request.merged
       - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - uses: actions/setup-node@v1
         with:
