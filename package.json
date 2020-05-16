@@ -14,6 +14,13 @@
           "useBuiltIns": "usage",
           "corejs": 3
         }
+      ],
+      [
+        "@babel/preset-typescript",
+        {
+          "allExtensions": true,
+          "onlyRemoveTypeImports": true
+        }
       ]
     ]
   },
@@ -65,11 +72,13 @@
     "@babel/core": "^7.9.0",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
     "eslint": "^6.8.0",
     "eslint-config-benblais": "^1.2.1",
     "eslint-plugin-import": "^2.20.1",
     "fs-extra": "^9.0.0",
-    "jest": "^25.2.3"
+    "jest": "^25.2.3",
+    "typescript": "^3.9.2"
   },
   "dependencies": {
     "core-js": "^3.6.4"
