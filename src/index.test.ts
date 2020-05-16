@@ -7,8 +7,8 @@ describe('Test for All imports', () => {
 		const files = await fs.readdir(__dirname);
 
 		const functionFiles = files.filter(
-			file => !file.endsWith('.test.js') && !file.includes('index.js')
-		).map(file => path.basename(file, '.js'));
+			file => !file.endsWith('.test.ts') && !file.includes('index.ts')
+		).map(file => path.basename(file, '.ts'));
 
 		const indexRequireNames = Object.keys(index);
 
