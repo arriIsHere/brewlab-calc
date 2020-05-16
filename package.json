@@ -48,7 +48,7 @@
   "scripts": {
     "test": "jest --watch",
     "test:all": "jest src",
-    "test:ci": "jest dist",
+    "test:ci": "cross-env NODE_ENV=ci jest dist",
     "lint": "eslint src/*.ts",
     "build": "babel src --out-dir dist"
   },
@@ -76,6 +76,7 @@
     "@types/fs-extra": "^9.0.0",
     "@types/jest": "^25.2.2",
     "@types/node": "^14.0.1",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-benblais": "^1.2.1",
     "eslint-plugin-import": "^2.20.1",
