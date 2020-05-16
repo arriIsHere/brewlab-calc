@@ -50,7 +50,7 @@
     "test:all": "jest src",
     "test:ci": "cross-env NODE_ENV=ci jest dist",
     "lint": "eslint src/*.ts",
-    "build": "babel src --out-dir dist"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
