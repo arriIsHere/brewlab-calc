@@ -6,9 +6,9 @@
  * @param {number} targetTemperature temperature to raise the mash to in degrees fahrenheit
  * @param {number} mashVolume volume of the mash (including grains and strike water).
  * @param {number} boilingPoint for the elivation being brewed at, the boiling point of water, defaults to 212.
- * @returns {number}
+ * @returns {number} volume in gallons of mash be collected for a single decoction step
  */
-export default function decoctionVolumeForStep(startingTemperature, targetTemperature, mashVolume, boilingPoint = 212) {
+export default function decoctionVolumeForStep(startingTemperature : number, targetTemperature : number, mashVolume : number, boilingPoint : number = 212) : number {
 	const temperatureDelta = targetTemperature - startingTemperature;
 	const boilingDelta = boilingPoint - startingTemperature;
 

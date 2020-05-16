@@ -1,8 +1,12 @@
 /**
- * Converts a pre-fermented gravity measurement into brix.
- * @param {Number} og The original gravity measurement (e.g. 1.050)
+ * Converts a pre-fermented gravity measurement into brix. 
+ * Note: this calculator will only work for unfermented
+ * wart.
+ * @param {number} og The original gravity measurement (e.g. 1.050)
+ * @returns {number} the brix value that represents the provided
+ * original gravity. 
  */
-export default function originalGravityToBrix(og) {
+export default function originalGravityToBrix(og : number) : number {
 
 	// Og of 1 or less means the brix is 0 
 	if(og <= 1) {

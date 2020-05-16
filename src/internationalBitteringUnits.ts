@@ -9,13 +9,15 @@
  * 60minute boil.
  * @param {number} weight weight in ounces
  * @param {number} volume volume of boil in gallons
+ * @returns {number} positive integer of the international bittering units 
+ * calculation from a single hop addition
  */
 export default function internationalBitteringUnits (
-	alphaAcids, 
-	boilTime, 
-	weight, 
-	volume,
-) {
+	alphaAcids : number, 
+	boilTime : number, 
+	weight : number, 
+	volume : number,
+) : number {
 	const boilFactor = (1 - 2.718281828459045235 ** (-0.04 * boilTime)) / 4.15;
 	const utilization = 1.0527601683 * boilFactor * 82.39;
 	const ibu = alphaAcids * weight * utilization / volume;
