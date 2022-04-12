@@ -42,7 +42,7 @@
     }
   },
   "eslintConfig": {
-    "extends": "benblais"
+    "extends": "arri"
   },
   "main": "index.js",
   "scripts": {
@@ -61,7 +61,7 @@
     "Calculations",
     "library"
   ],
-  "author": "Ben Blais <me@benblais.dev>",
+  "author": "Arri Blais <arriblais@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/bblais23/brewlab-calc/issues"
@@ -78,7 +78,7 @@
     "@types/node": "^14.0.1",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
-    "eslint-config-benblais": "^1.2.1",
+    "eslint-config-arri": "^1.2.3",
     "eslint-plugin-import": "^2.20.1",
     "fs-extra": "^9.0.0",
     "jest": "^25.2.3",
