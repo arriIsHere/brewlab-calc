@@ -6,7 +6,7 @@ name: Release
 on:
   pull_request:
     types: [closed]
-    branches: master
+    branches: main
 
 jobs:
   build:
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: refs/heads/master 
+          ref: refs/heads/main 
       - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - uses: actions/setup-node@v1
         with:
@@ -86,6 +86,6 @@ jobs:
       - run: npm run build
       - run: npm version $(git describe --tags $(git rev-list --tags --max-count=1)) --no-git-tag-version
       - run: cp * .* dist 2>/dev/null || echo 0
-      - run: npm publish dist/ --registry=https://npm.pkg.github.com/ --access public
+      - run: npm publish dist/ --registry=https://npm.pkg.github.com/ --scope=@arriIsHere --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
