@@ -47,7 +47,7 @@ jobs:
       - run: npm version minor --no-git-tag-version
         if: startsWith(github.event.pull_request.head.ref, 'feature')
       - run: npm version patch --no-git-tag-version
-        if: startsWith(github.event.pull_request.head.ref, 'fix')
+        if: startsWith(github.event.pull_request.head.ref, 'fix') && startsWith(github.event.pull_request.head.ref, 'dependabot')
       - run: git tag v$(node -p "require('./package.json').version")
       - run: git push gh-origin --tags
         env:
