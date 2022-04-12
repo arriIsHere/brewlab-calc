@@ -19,5 +19,5 @@ I highly encourage TDD (test driven development) when writing these functions.
 5. **Add a named export in index.js** - This method should be importable as a named import from the package. In order to do that, each 
 function should be exported in index.ts.
 
-4. **Write Neat Code** - I have connected [my eslint configuration](https://www.npmjs.com/package/eslint-config-benblais) to this to enforce language
+4. **Write Neat Code** - I have connected [my eslint configuration](https://www.npmjs.com/package/eslint-config-arri) to this to enforce language
  formatting and a check is run on pull requests. The code should be neat and have good naming of variables, arguments and functions.
